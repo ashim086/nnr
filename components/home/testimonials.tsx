@@ -107,7 +107,7 @@ export default function Testimonials() {
                     <button
                         onClick={next}
                         disabled={start >= testimonials.length - VISIBLE}
-                        className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500 text-white hover:bg-emerald-600 disabled:opacity-30 transition"
+                        className="flex h-10 w-10 items-center justify-center rounded-full bg-red-500 text-white hover:bg-red-600 disabled:opacity-30 transition"
                     >
                         <ChevronRight className="h-5 w-5" />
                     </button>

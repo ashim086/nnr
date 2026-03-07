@@ -1,134 +1,109 @@
 "use client";
 
 import {
-    Zap,
-    Clock,
-    ShieldCheck,
-    Star,
-    CheckCircle,
-    Download,
     Phone,
-    ArrowRight,
-    Landmark,
+    Mail,
+    MapPin,
+    Facebook,
+    Instagram,
+    MessageCircle,
 } from "lucide-react";
-
-const features = [
-    { icon: Zap, label: "Instant quotes online" },
-    { icon: Clock, label: "Live driver tracking" },
-    { icon: ShieldCheck, label: "Fully insured" },
-    { icon: Star, label: "AFRA registered" },
-    { icon: CheckCircle, label: "Australia-wide" },
-    { icon: Download, label: "$20 off app" },
-];
 
 const footerLinks = [
     {
         heading: "Services",
-        links: ["Small Pickup & Drop", "Office Moving", "Bike Pickup", "Rubbish Pickup", "Sound System Hire"],
+        links: ["Small Pickup & Drop", "House Moving", "Office Relocation", "Bike Pickup", "Rubbish Pickup"],
     },
     {
         heading: "Company",
-        links: ["About Us", "How It Works", "Careers", "Press", "Blog", "Contact"],
+        links: ["About Us", "Our Team", "Gallery", "Testimonials", "Contact"],
     },
     {
-        heading: "Legal",
-        links: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Insurance Info"],
+        heading: "Support",
+        links: ["Get a Quote", "FAQs", "Privacy Policy", "Terms of Service"],
     },
 ];
 
 export default function Footer() {
     return (
-        <footer
-            className="relative overflow-hidden"
-            style={{
-                backgroundImage: "url('/bg.png')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-            }}
-        >
-            <div className="absolute inset-0 bg-[#0d1b2e]/92" />
-
-            <div className="relative z-10">
-                {/* ── CTA Block ── */}
-                <div className="mx-auto max-w-4xl px-6 py-6 flex flex-col items-center text-center">
-                    {/* Badge */}
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-white/70 tracking-widest uppercase mb-8">
-                        <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                        Ready to move?
-                    </span>
-
-                    <h2 className="text-4xl sm:text-5xl font-bold text-white mb-5 leading-tight">
-                        Book Your Move Today
-                    </h2>
-
-                    <p className="text-slate-400 text-base mb-12 max-w-lg leading-relaxed">
-                        Join thousands of satisfied customers. Get your instant quote in 60 seconds.
-                    </p>
-
-                    {/* Feature badges grid */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full max-w-2xl mb-12">
-                        {features.map((f) => {
-                            const Icon = f.icon;
-                            return (
-                                <div
-                                    key={f.label}
-                                    className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80"
-                                >
-                                    <Icon className="h-4 w-4 text-emerald-400 shrink-0" strokeWidth={1.5} />
-                                    {f.label}
-                                </div>
-                            );
-                        })}
+        <footer id="contact" className="bg-[#0d1b2e]">
+            {/* Contact Bar */}
+            <div className="bg-[#162438] py-6 px-6">
+                <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center">
+                            <Phone className="h-5 w-5 text-white" />
+                        </div>
+                        <div>
+                            <p className="text-xs text-gray-400 uppercase tracking-wider">Phone</p>
+                            <p className="text-white font-semibold">0452 649 320, 0452 559 320</p>
+                        </div>
                     </div>
-
-                    {/* CTA buttons */}
-                    <div className="flex flex-wrap items-center justify-center gap-3">
-                        <button className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-white hover:bg-emerald-600 transition shadow-lg">
-                            <Zap className="h-4 w-4" />
-                            Get Your Instant Quote
-                            <ArrowRight className="h-4 w-4" />
-                        </button>
-                        <button className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition">
-                            <Download className="h-4 w-4" />
-                            Download App
-                        </button>
-                        <button className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition">
-                            <Phone className="h-4 w-4" />
-                            Call 0452 649 320
-                        </button>
+                    <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center">
+                            <MapPin className="h-5 w-5 text-white" />
+                        </div>
+                        <div>
+                            <p className="text-xs text-gray-400 uppercase tracking-wider">Location</p>
+                            <p className="text-white font-semibold">Auburn Old NSW, Sydney Australia</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center">
+                            <Mail className="h-5 w-5 text-white" />
+                        </div>
+                        <div>
+                            <p className="text-xs text-gray-400 uppercase tracking-wider">Email</p>
+                            <p className="text-white font-semibold">info@namastenepalremoval.com.au</p>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                {/* ── Divider ── */}
-                <div className="border-t border-white/10 mx-6" />
-
-                {/* ── Footer links ── */}
-                <div className="mx-auto max-w-5xl px-6 py-12 grid grid-cols-2 sm:grid-cols-4 gap-10">
+            {/* Main Footer */}
+            <div className="px-6 py-12">
+                <div className="mx-auto max-w-6xl grid grid-cols-2 sm:grid-cols-4 gap-10">
                     {/* Brand column */}
                     <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
-                        <span className="text-2xl font-bold text-white tracking-tight">
-                            <span className="text-emerald-400">N</span>N<span className="text-emerald-400">R</span>
-                        </span>
-                        <p className="text-sm text-slate-400 leading-relaxed">
-                            Namaste Nepal Removal - Your trusted removal partner in Sydney. Instant quotes, reliable movers.
+                        <div className="flex items-center gap-2">
+                            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white">
+                                <span className="text-[#0d1b2e] font-bold text-sm">N</span>
+                                <span className="text-red-600 font-bold text-sm">N</span>
+                                <span className="text-[#0d1b2e] font-bold text-sm">R</span>
+                            </div>
+                            <div>
+                                <p className="text-white font-bold text-sm">Namaste Nepal</p>
+                                <p className="text-gray-400 text-xs">Removal Services</p>
+                            </div>
+                        </div>
+                        <p className="text-sm text-gray-400 leading-relaxed">
+                            Your trusted Nepali-owned removal partner in Sydney. Safe, affordable, and reliable moving services.
                         </p>
-                        <div className="flex flex-col gap-1.5 text-xs text-slate-500 mt-1">
-                            <span className="flex items-center gap-1.5"><Landmark className="h-3.5 w-3.5 text-emerald-400" /> Auburn 2144 NSW</span>
-                            <span className="flex items-center gap-1.5"><Phone className="h-3.5 w-3.5 text-emerald-400" /> 0452 649 320</span>
-                            <span className="flex items-center gap-1.5"><Phone className="h-3.5 w-3.5 text-emerald-400" /> 0452 559 320</span>
-                            <span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-emerald-400" /> Fully Insured</span>
+                        
+                        {/* Social Links */}
+                        <div className="flex items-center gap-3 mt-2">
+                            <span className="text-xs text-gray-500 uppercase tracking-wider">Connect</span>
+                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition">
+                                <Facebook className="h-4 w-4 text-white" />
+                            </a>
+                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition">
+                                <Instagram className="h-4 w-4 text-white" />
+                            </a>
+                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition">
+                                <MessageCircle className="h-4 w-4 text-white" />
+                            </a>
                         </div>
                     </div>
 
                     {/* Link columns */}
                     {footerLinks.map((col) => (
                         <div key={col.heading} className="flex flex-col gap-3">
-                            <p className="text-xs font-bold text-white/50 uppercase tracking-widest">{col.heading}</p>
+                            <p className="text-xs font-bold text-white uppercase tracking-widest">{col.heading}</p>
                             {col.links.map((link) => (
                                 <a
                                     key={link}
                                     href="#"
-                                    className="text-sm text-slate-400 hover:text-white transition"
+                                    className="text-sm text-gray-400 hover:text-red-400 transition"
                                 >
                                     {link}
                                 </a>
@@ -136,12 +111,40 @@ export default function Footer() {
                         </div>
                     ))}
                 </div>
+            </div>
 
-                {/* ── Bottom bar ── */}
-                <div className="border-t border-white/10 mx-6" />
-                <div className="mx-auto max-w-5xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-                    <p>NNR – Namaste Nepal Removal, Auburn 2144 NSW. Making moving easier for thousands of customers across Sydney.</p>
-                    <p>© {new Date().getFullYear()} NNR. All rights reserved.</p>
+            {/* Bottom bar */}
+            <div className="border-t border-white/10">
+                <div className="mx-auto max-w-6xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p className="text-xs text-gray-500">
+                        © {new Date().getFullYear()} Namaste Nepal Removal. All Rights Reserved.
+                    </p>
+                    
+                    {/* Nepal + Australia Flags */}
+                    <div className="flex items-center gap-3">
+                        {/* Nepal Flag */}
+                        <div className="flex items-center gap-1.5">
+                            <svg viewBox="0 0 16 20" className="h-5 w-4">
+                                <polygon points="0,0 16,6 0,12" fill="#c8102e" stroke="#003893" strokeWidth="0.5"/>
+                                <polygon points="0,8 16,14 0,20" fill="#c8102e" stroke="#003893" strokeWidth="0.5"/>
+                                <circle cx="5" cy="5" r="2" fill="white"/>
+                                <circle cx="5" cy="14" r="1.5" fill="white"/>
+                            </svg>
+                            <span className="text-xs text-gray-400">Nepal</span>
+                        </div>
+                        <span className="text-gray-600">|</span>
+                        {/* Australia Flag */}
+                        <div className="flex items-center gap-1.5">
+                            <svg viewBox="0 0 20 12" className="h-4 w-5">
+                                <rect width="20" height="12" fill="#00247d"/>
+                                <rect x="0" y="4.5" width="10" height="3" fill="white"/>
+                                <rect x="3.5" y="0" width="3" height="12" fill="white"/>
+                                <rect x="0" y="5" width="10" height="2" fill="#cf142b"/>
+                                <rect x="4" y="0" width="2" height="12" fill="#cf142b"/>
+                            </svg>
+                            <span className="text-xs text-gray-400">Australia</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

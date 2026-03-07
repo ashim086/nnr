@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Hero from "@/components/home/hero";;
+import Hero from "@/components/home/hero";
 import HowItWorks from "@/components/home/how-it-works";
 import Services from "@/components/home/services";
+import About from "@/components/home/about";
+import Gallery from "@/components/home/gallery";
 import RemovalsHub from "@/components/home/removals-hub";
 import Testimonials from "@/components/home/testimonials";
 import FAQ from "@/components/home/faq";
@@ -70,8 +72,8 @@ export default function DashboardHome() {
                             key={idx}
                             className="w-[1.6025rem] h-6.25 border"
                             style={{
-                                borderColor: isHighlighted ? "rgba(16,185,129,0.45)" : "rgba(0,0,0,0.05)",
-                                backgroundColor: isHighlighted ? "rgba(16,185,129,0.06)" : "transparent",
+                                borderColor: isHighlighted ? "rgba(220,38,38,0.45)" : "rgba(0,0,0,0.05)",
+                                backgroundColor: isHighlighted ? "rgba(220,38,38,0.06)" : "transparent",
                                 transition: isHighlighted
                                     ? "border-color 0.1s ease-out, background-color 0.1s ease-out"
                                     : "border-color 2s ease, background-color 2s ease",
@@ -101,6 +103,12 @@ export default function DashboardHome() {
                     <Services />
                 </section>
                 <section id="about" className="scroll-mt-20">
+                    <About />
+                </section>
+                <section id="gallery" className="scroll-mt-20">
+                    <Gallery />
+                </section>
+                <section id="removals-hub" className="scroll-mt-20">
                     <RemovalsHub />
                 </section>
                 <section id="testimonials" className="scroll-mt-20">

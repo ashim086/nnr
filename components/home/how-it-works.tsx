@@ -27,7 +27,7 @@ export default function HowItWorks() {
                 {/* Heading */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
                     Get Your Quote in{" "}
-                    <span className="text-emerald-400">60 Seconds</span>
+                    <span className="text-red-400">60 Seconds</span>
                 </h2>
 
                 {/* Subtext */}
@@ -61,7 +61,7 @@ export default function HowItWorks() {
                                 {/* Arrow connector */}
                                 {i < steps.length - 1 && (
                                     <div className="flex items-center justify-center sm:mb-6 my-3 sm:my-0 sm:mx-2">
-                                        <ArrowRight className="w-6 h-6 text-emerald-400 rotate-90 sm:rotate-0" strokeWidth={2} />
+                                        <ArrowRight className="w-6 h-6 text-red-400 rotate-90 sm:rotate-0" strokeWidth={2} />
                                     </div>
                                 )}
                             </div>
@@ -71,14 +71,14 @@ export default function HowItWorks() {
 
                 {/* CTAs */}
                 <div className="flex flex-wrap items-center justify-center gap-4">
-                    <button className="inline-flex items-center gap-2.5 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-emerald-600 transition">
+                    <button className="inline-flex items-center gap-2.5 rounded-full bg-red-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-red-600 transition">
                         <Download className="h-4 w-4" />
                         Download Our Apps
                     </button>
                     <button
                         className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition backdrop-blur-sm"
                     >
-                        <Phone className="h-4 w-4 text-emerald-400" />
+                        <Phone className="h-4 w-4 text-red-400" />
                         Call 0452 649 320
                     </button>
                 </div>

@@ -49,7 +49,7 @@ export default function PlacesInput({
                 placeholder={placeholder}
                 className={cn(
                     variant === "glass"
-                        ? "w-full rounded-lg bg-white/10 border border-white/20 px-4 py-2.5 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-emerald-400/60 transition"
+                        ? "w-full rounded-lg bg-white/10 border border-white/20 px-4 py-2.5 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-red-400/60 transition"
                         : cn(
                             "w-full rounded-md border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring transition",
                             hasError ? "border-red-400" : "border-input"
@@ -107,7 +107,7 @@ export default function PlacesInput({
                             <MapPin
                                 className={cn(
                                     "size-3.5 shrink-0 mt-0.5",
-                                    variant === "glass" ? "text-emerald-400" : "text-primary"
+                                    variant === "glass" ? "text-red-400" : "text-primary"
                                 )}
                             />
                             <div className="min-w-0">

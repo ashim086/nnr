@@ -156,7 +156,7 @@ export function UpcomingMoveCardSkeleton() {
 
 export function UpcomingMovesSkeleton() {
     return (
-        <div className="bg-gradient-to-br from-primary/5 to-emerald-50 rounded-2xl border border-primary/10 p-5">
+        <div className="bg-gradient-to-br from-primary/5 to-red-50 rounded-2xl border border-primary/10 p-5">
             <div className="flex items-center gap-3 mb-4">
                 <Skeleton className="w-10 h-10 rounded-xl bg-primary/20" />
                 <div>
@@ -192,7 +192,7 @@ export function QuickActionsSkeleton() {
 
 export function WelcomeSkeleton() {
     return (
-        <div className="bg-gradient-to-r from-primary/10 via-emerald-50 to-teal-50 rounded-2xl p-6 border border-primary/10">
+        <div className="bg-gradient-to-r from-primary/10 via-red-50 to-rose-50 rounded-2xl p-6 border border-primary/10">
             <div className="flex flex-col lg:flex-row items-center gap-6">
                 <Skeleton className="w-24 h-24 rounded-full" />
                 <div className="text-center lg:text-left flex-1">
@@ -325,7 +325,7 @@ export function BookingsGridSkeleton() {
 export function ServicesPageSkeleton() {
     return (
         <div className="space-y-6">
-            <div className="bg-gradient-to-r from-primary/10 via-emerald-50 to-teal-50 rounded-2xl p-6 border border-primary/10">
+            <div className="bg-gradient-to-r from-primary/10 via-red-50 to-rose-50 rounded-2xl p-6 border border-primary/10">
                 <Skeleton className="h-8 w-48 mb-2" />
                 <Skeleton className="h-4 w-96" />
             </div>

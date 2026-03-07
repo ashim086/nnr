@@ -95,7 +95,7 @@ export default function RemovalsHub() {
                 {/* Heading */}
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center mb-10">
                     Removals Hub –{" "}
-                    <span className="text-emerald-400">All Services</span>
+                    <span className="text-red-400">All Services</span>
                 </h2>
 
                 <Tabs defaultValue="moving-home">
@@ -105,7 +105,7 @@ export default function RemovalsHub() {
                             <TabsTrigger
                                 key={tab.value}
                                 value={tab.value}
-                                className="w-full flex justify-center items-center text-center border-b-2 border-transparent data-[state=active]:border-emerald-400 data-[state=active]:text-white text-white/50 bg-transparent px-2 pb-3 pt-0 text-xs font-bold tracking-widest uppercase transition-colors hover:text-white/80 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+                                className="w-full flex justify-center items-center text-center border-b-2 border-transparent data-[state=active]:border-red-400 data-[state=active]:text-white text-white/50 bg-transparent px-2 pb-3 pt-0 text-xs font-bold tracking-widest uppercase transition-colors hover:text-white/80 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
                             >
                                 {tab.label}
                             </TabsTrigger>
@@ -121,10 +121,10 @@ export default function RemovalsHub() {
                                     return (
                                         <button
                                             key={item.label}
-                                            className="flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-white/5 px-4 py-8 text-white/80 hover:bg-white/10 hover:border-emerald-400/40 hover:text-white transition-all group"
+                                            className="flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-white/5 px-4 py-8 text-white/80 hover:bg-white/10 hover:border-red-400/40 hover:text-white transition-all group"
                                         >
                                             <Icon
-                                                className="h-10 w-10 text-emerald-400/70 group-hover:text-emerald-400 transition-colors"
+                                                className="h-10 w-10 text-red-400/70 group-hover:text-red-400 transition-colors"
                                                 strokeWidth={1.2}
                                             />
                                             <span className="text-sm font-medium text-center leading-snug">
