@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import {
     Star,
     Download,
@@ -70,12 +71,22 @@ const Hero = ({ onGetQuote }: HeroProps) => {
     };
 
     return (
-        <section className="min-h-screen overflow-hidden">
+        <section className="min-h-screen overflow-hidden relative">
+            {/* Mountains Background - High quality Himalayan image */}
+            <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2070&auto=format&fit=crop')" }}
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-[#0d1b2e]/70 pointer-events-none" />
+            {/* Bottom gradient for smooth transition */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b2e] via-transparent to-[#0d1b2e]/50 pointer-events-none" />
+            
             {/* ─── Navbar ─── */}
-            <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100/50">
+            <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d1b2e]/90 backdrop-blur-md border-b border-white/10">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-                    <a href="/" className="text-2xl font-bold text-gray-900 tracking-tight">
-                        <span className="text-emerald-600">N</span>N<span className="text-emerald-600">R</span>
+                    <a href="/" className="flex items-center">
+                        <img src="/logo.png" alt="NNR Logo" className="h-10 w-auto" />
                     </a>
 
                     <ul className="hidden lg:flex items-center gap-8">
@@ -88,7 +99,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                                         const target = document.querySelector(link.href);
                                         target?.scrollIntoView({ behavior: "smooth" });
                                     }}
-                                    className="text-sm font-medium text-gray-600 hover:bg-emerald-600 hover:text-white rounded-full px-3 py-1.5 transition"
+                                    className="text-sm font-medium text-white/80 hover:bg-red-600 hover:text-white rounded-full px-3 py-1.5 transition"
                                 >
                                     {link.label}
                                 </a>
@@ -98,7 +109,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
 
                     <a
                         href="tel:0452649320"
-                        className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-emerald-700 transition"
+                        className="inline-flex items-center gap-2 rounded-full bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-red-700 transition"
                     >
                         <Phone className="h-4 w-4" />
                         Call Now
@@ -108,28 +119,36 @@ const Hero = ({ onGetQuote }: HeroProps) => {
             </nav>
 
             {/* ─── Hero Content ─── */}
-            <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 px-6 pt-20 lg:pt-24">
+            <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 px-6 pt-24 lg:pt-28">
                 {/* Left Column */}
                 <div className="flex flex-col justify-center pb-16 lg:pb-24 lg:pr-12">
-                    {/* Rating badge */}
-                    <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm text-gray-600">
+                    {/* Nepali greeting badge */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-red-500/30 bg-red-600/10 px-4 py-2 text-sm"
+                    >
+                        <span className="text-2xl">🙏</span>
+                        <span className="text-white/90 font-medium">नमस्ते! Welcome to NNR</span>
                         <div className="flex items-center gap-0.5">
                             {Array.from({ length: 5 }).map((_, i) => (
-                                <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                                <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                             ))}
                         </div>
-                        <span>
-                            Rated <strong className="text-gray-900">4.9/5</strong> by 3,000+ Aussie Customers
-                        </span>
-                        <span className="font-semibold text-gray-900">★ Google Reviews</span>
-                    </div>
+                    </motion.div>
 
                     {/* Headline */}
-                    <h1 className="text-2xl sm:text-5xl lg:text-[2.3rem] font-bold leading-tight text-gray-900 mb-6">
-                        Namaste Nepal
+                    <motion.h1 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="text-3xl sm:text-5xl lg:text-[2.8rem] font-bold leading-tight text-white mb-6"
+                    >
+                        <span className="text-red-500">Namaste</span> Nepal
                         <br />
                         Australian Removals,{" "}
-                        <span className="relative inline-block">
+                        <span className="relative inline-block text-red-400">
                             Simplified
                             <svg
                                 className="absolute -bottom-2 left-0 w-full"
@@ -137,112 +156,131 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
-                                <path d="M2 8C50 2 236 -1 284 6" stroke="#10b981" strokeWidth="3" strokeLinecap="round" />
+                                <path d="M2 8C50 2 236 -1 284 6" stroke="#dc2626" strokeWidth="3" strokeLinecap="round" />
                             </svg>
                         </span>
-                    </h1>
+                    </motion.h1>
 
                     {/* Subtext */}
-                    <p className="mb-8 max-w-lg text-gray-500 leading-relaxed">
-                        Moving home? Need a man with van? Looking for removal companies near me? NNR makes it happen in 60 seconds.
-                    </p>
+                    <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        className="mb-8 max-w-lg text-white/70 leading-relaxed text-lg"
+                    >
+                        Your trusted Nepali-owned removal service in Australia. Moving home? Need a man with van? We make it happen with care and respect — just like family. 🇳🇵 🇦🇺
+                    </motion.p>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-wrap items-center gap-4 mb-10">
-                        <button className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-emerald-700 transition">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="flex flex-wrap items-center gap-4 mb-10"
+                    >
+                        <button className="inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-red-700 transition">
                             <Download className="h-4 w-4" />
                             Download Our Apps
                         </button>
-                        <button className="inline-flex items-center gap-2 rounded-full border-2 border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:border-gray-300 transition">
-                            <Phone className="h-4 w-4 text-emerald-600" />
+                        <button className="inline-flex items-center gap-2 rounded-full border-2 border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition">
+                            <Phone className="h-4 w-4 text-red-400" />
                             Call 0452 649 320
                         </button>
-                    </div>
+                    </motion.div>
 
                     {/* Trust Badges */}
-                    <div className="flex flex-wrap items-center gap-6">
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                            <span className="flex items-center justify-center rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-bold text-emerald-700 shadow-sm">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                        className="flex flex-wrap items-center gap-6"
+                    >
+                        <div className="flex items-center gap-2 text-sm text-white/80">
+                            <span className="flex items-center justify-center rounded-full border border-red-500/30 bg-red-600/20 px-3 py-1 text-xs font-bold text-red-400">
                                 AFRA
                             </span>
                             Registered
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                            <ShieldCheck className="h-5 w-5 text-emerald-600" />
+                        <div className="flex items-center gap-2 text-sm text-white/80">
+                            <ShieldCheck className="h-5 w-5 text-red-400" />
                             Fully Insured
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                            <Landmark className="h-5 w-5 text-emerald-600" />
+                        <div className="flex items-center gap-2 text-sm text-white/80">
+                            <Landmark className="h-5 w-5 text-red-400" />
                             Australia-Wide
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
-                {/* Right Column – Image + Quote form */}
-                <div className="flex items-end justify-center lg:justify-end">
-                    <div className="relative w-full max-w-xl rounded-t-3xl lg:rounded-3xl">
-                        <img
-                            src="/man.png"
-                            alt="Removal workers loading a van"
-                            className="h-120 w-full object-cover lg:h-140 rounded-t-3xl lg:rounded-3xl"
-                        />
-                        {/* Gradient overlay */}
-                        <div className="absolute inset-0 bg-linear-to-t from-gray-900/80 via-gray-900/30 to-transparent rounded-t-3xl lg:rounded-3xl pointer-events-none" />
-                        {/* Quote form */}
-                        <div className="absolute bottom-0 left-0 right-0 p-6">
-                            <form
-                                onSubmit={handleGetQuote}
-                                className="rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-5"
-                            >
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-                                    {/* Moving from */}
-                                    <div>
-                                        <label className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-white/80">
-                                            Moving from?
-                                            {locating && (
-                                                <span className="flex items-center gap-1 text-white/50">
-                                                    <LocateFixed className="size-3 animate-pulse" />
-                                                    Locating…
-                                                </span>
-                                            )}
-                                        </label>
-                                        <PlacesInput
-                                            variant="glass"
-                                            value={movingFrom}
-                                            onChange={setMovingFrom}
-                                            placeholder="e.g. Sydney 2000"
-                                        />
-                                    </div>
-
-                                    {/* Moving to */}
-                                    <div>
-                                        <label className="mb-1.5 block text-xs font-medium text-white/80">
-                                            Moving to?
-                                        </label>
-                                        <PlacesInput
-                                            variant="glass"
-                                            value={movingTo}
-                                            onChange={setMovingTo}
-                                            placeholder="e.g. Melbourne 3000"
-                                        />
-                                    </div>
+                {/* Right Column – Quote form */}
+                <motion.div 
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="flex items-center justify-center lg:justify-end"
+                >
+                    <div className="w-full max-w-md">
+                        <form
+                            onSubmit={handleGetQuote}
+                            className="rounded-2xl bg-white p-6 shadow-2xl"
+                        >
+                            <div className="text-center mb-6">
+                                <h3 className="text-xl font-bold text-gray-900 mb-1">Get Your Quote</h3>
+                                <p className="text-sm text-gray-500">Fast, reliable Nepali movers 🇳🇵</p>
+                            </div>
+                            
+                            <div className="space-y-4 mb-4">
+                                {/* Moving from */}
+                                <div>
+                                    <label className="mb-1.5 flex items-center gap-1.5 text-sm font-medium text-gray-700">
+                                        📍 Moving from
+                                        {locating && (
+                                            <span className="flex items-center gap-1 text-gray-400 text-xs">
+                                                <LocateFixed className="size-3 animate-pulse" />
+                                                Locating…
+                                            </span>
+                                        )}
+                                    </label>
+                                    <PlacesInput
+                                        variant="default"
+                                        value={movingFrom}
+                                        onChange={setMovingFrom}
+                                        placeholder="e.g. Sydney 2000"
+                                    />
                                 </div>
 
-                                {/* Validation error */}
-                                {quoteError && (
-                                    <p className="mb-2 text-xs text-red-300">{quoteError}</p>
-                                )}
+                                {/* Moving to */}
+                                <div>
+                                    <label className="mb-1.5 block text-sm font-medium text-gray-700">
+                                        📍 Moving to
+                                    </label>
+                                    <PlacesInput
+                                        variant="default"
+                                        value={movingTo}
+                                        onChange={setMovingTo}
+                                        placeholder="e.g. Melbourne 3000"
+                                    />
+                                </div>
+                            </div>
 
-                                <button
-                                    type="submit"
-                                    className="w-full rounded-lg bg-emerald-500 py-3 text-sm font-semibold text-white shadow-lg hover:bg-emerald-600 transition"
-                                >
-                                    Get Your Instant Quote
-                                </button>
-                            </form>
-                        </div>
+                            {/* Validation error */}
+                            {quoteError && (
+                                <p className="mb-3 text-xs text-red-500 text-center">{quoteError}</p>
+                            )}
+
+                            <button
+                                type="submit"
+                                className="w-full rounded-xl bg-red-600 py-4 text-sm font-bold text-white shadow-lg hover:bg-red-700 transition"
+                            >
+                                Get Instant Quote →
+                            </button>
+                            
+                            <p className="text-center text-xs text-gray-400 mt-4">
+                                ✓ No obligation &nbsp;•&nbsp; ✓ Response within 30 mins
+                            </p>
+                        </form>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

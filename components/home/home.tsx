@@ -70,8 +70,8 @@ export default function DashboardHome() {
                             key={idx}
                             className="w-[1.6025rem] h-6.25 border"
                             style={{
-                                borderColor: isHighlighted ? "rgba(16,185,129,0.45)" : "rgba(0,0,0,0.05)",
-                                backgroundColor: isHighlighted ? "rgba(16,185,129,0.06)" : "transparent",
+                                borderColor: isHighlighted ? "rgba(220,38,38,0.45)" : "rgba(0,0,0,0.05)",
+                                backgroundColor: isHighlighted ? "rgba(220,38,38,0.06)" : "transparent",
                                 transition: isHighlighted
                                     ? "border-color 0.1s ease-out, background-color 0.1s ease-out"
                                     : "border-color 2s ease, background-color 2s ease",

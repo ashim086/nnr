@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Phone, MessageCircle } from "lucide-react";
 import {
     Accordion,
@@ -116,14 +117,20 @@ export default function FAQ() {
             <div className="mx-auto max-w-5xl">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     {/* Left */}
-                    <div className="flex flex-col gap-8">
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.5 }}
+                        className="flex flex-col gap-8"
+                    >
                         <div>
                             <h2 className="text-3xl font-bold text-gray-900 leading-tight mb-4">
                                 Frequently Asked Questions
                             </h2>
                             <p className="text-sm text-gray-500 leading-relaxed">
                                 Got questions? We&apos;ve got answers. Can&apos;t find what you&apos;re looking for?{" "}
-                                <a href="#contact" className="underline text-gray-700 hover:text-emerald-600 transition">
+                                <a href="#contact" className="underline text-gray-700 hover:text-red-600 transition">
                                     Contact us
                                 </a>
                             </p>
@@ -131,11 +138,11 @@ export default function FAQ() {
 
                         {/* Contact card */}
                         <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 flex flex-col items-center text-center gap-3">
-                            <MessageCircle className="h-8 w-8 text-emerald-500" />
+                            <MessageCircle className="h-8 w-8 text-red-500" />
                             <p className="font-semibold text-gray-900">Still have questions?</p>
                             <p className="text-sm text-gray-500">Our friendly team is here to help you 24/7</p>
                             <div className="flex flex-wrap gap-2 mt-1 justify-center">
-                                <button className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-emerald-600 transition">
+                                <button className="inline-flex items-center gap-2 rounded-full bg-red-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-600 transition">
                                     <Phone className="h-4 w-4" />
                                     Call 0452 649 320
                                 </button>
@@ -145,10 +152,16 @@ export default function FAQ() {
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Right */}
-                    <div className="lg:col-span-2 flex flex-col gap-4">
+                    <motion.div 
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="lg:col-span-2 flex flex-col gap-4"
+                    >
                         {/* Category pills */}
                         <div className="flex flex-wrap gap-2 mb-2">
                             {categories.map((cat) => (
@@ -156,7 +169,7 @@ export default function FAQ() {
                                     key={cat}
                                     onClick={() => setActiveCategory(cat)}
                                     className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${activeCategory === cat
-                                        ? "bg-emerald-500 text-white"
+                                        ? "bg-red-500 text-white"
                                         : "border border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:text-gray-900"
                                         }`}
                                 >
@@ -171,9 +184,9 @@ export default function FAQ() {
                                 <AccordionItem
                                     key={i}
                                     value={`item-${i}`}
-                                    className="border border-gray-200 rounded-xl mb-3 px-5 data-[state=open]:bg-emerald-50/60 data-[state=open]:border-emerald-200"
+                                    className="border border-gray-200 rounded-xl mb-3 px-5 data-[state=open]:bg-red-50/60 data-[state=open]:border-red-200"
                                 >
-                                    <AccordionTrigger className="text-sm font-medium text-gray-900 hover:no-underline hover:text-emerald-600 py-4">
+                                    <AccordionTrigger className="text-sm font-medium text-gray-900 hover:no-underline hover:text-red-600 py-4">
                                         {faq.q}
                                     </AccordionTrigger>
                                     <AccordionContent className="text-sm text-gray-500 leading-relaxed pb-4">
@@ -182,7 +195,7 @@ export default function FAQ() {
                                 </AccordionItem>
                             ))}
                         </Accordion>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

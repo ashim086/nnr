@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { MapPin, Package, Tag, CalendarDays, CreditCard, Download, Phone, ArrowRight } from "lucide-react";
 
 const steps = [
@@ -25,23 +26,42 @@ export default function HowItWorks() {
 
             <div className="relative z-10 mx-auto max-w-5xl flex flex-col items-center text-center">
                 {/* Heading */}
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+                <motion.h2 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5 }}
+                    className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight"
+                >
                     Get Your Quote in{" "}
-                    <span className="text-emerald-400">60 Seconds</span>
-                </h2>
+                    <span className="text-red-400">60 Seconds</span>
+                </motion.h2>
 
                 {/* Subtext */}
-                <p className="max-w-xl text-slate-400 text-base leading-relaxed mb-16">
+                <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="max-w-xl text-slate-400 text-base leading-relaxed mb-16"
+                >
                     Traditional removal companies make you wait. Phone calls. Callbacks. Home
                     visits. Days before you get a price.
-                </p>
+                </motion.p>
 
                 {/* Steps */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-0 w-full mb-16">
                     {steps.map((step, i) => {
                         const Icon = step.icon;
                         return (
-                            <div key={i} className="flex flex-col sm:flex-row items-center">
+                            <motion.div 
+                                key={i} 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.4, delay: i * 0.1 }}
+                                className="flex flex-col sm:flex-row items-center"
+                            >
                                 {/* Circle */}
                                 <div className="flex flex-col items-center gap-4">
                                     <div
@@ -61,27 +81,33 @@ export default function HowItWorks() {
                                 {/* Arrow connector */}
                                 {i < steps.length - 1 && (
                                     <div className="flex items-center justify-center sm:mb-6 my-3 sm:my-0 sm:mx-2">
-                                        <ArrowRight className="w-6 h-6 text-emerald-400 rotate-90 sm:rotate-0" strokeWidth={2} />
+                                        <ArrowRight className="w-6 h-6 text-red-400 rotate-90 sm:rotate-0" strokeWidth={2} />
                                     </div>
                                 )}
-                            </div>
+                            </motion.div>
                         );
                     })}
                 </div>
 
                 {/* CTAs */}
-                <div className="flex flex-wrap items-center justify-center gap-4">
-                    <button className="inline-flex items-center gap-2.5 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-emerald-600 transition">
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="flex flex-wrap items-center justify-center gap-4"
+                >
+                    <button className="inline-flex items-center gap-2.5 rounded-full bg-red-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-red-600 transition">
                         <Download className="h-4 w-4" />
                         Download Our Apps
                     </button>
                     <button
                         className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition backdrop-blur-sm"
                     >
-                        <Phone className="h-4 w-4 text-emerald-400" />
+                        <Phone className="h-4 w-4 text-red-400" />
                         Call 0452 649 320
                     </button>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

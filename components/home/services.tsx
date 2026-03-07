@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Truck, Building2, Bike, Trash2, Clock, Users, ShieldCheck, Check } from "lucide-react";
 import {
     Card,
@@ -11,7 +12,7 @@ import BookingModal from "@/components/booking/bookinModal";
 const services = [
     {
         badge: "MOST POPULAR",
-        badgeColor: "bg-emerald-500",
+        badgeColor: "bg-red-500",
         image: "/manvan.jpg",
         icon: Truck,
         title: "Small Pickup & Drop",
@@ -105,23 +106,35 @@ export default function Services() {
             />
             <div className="mx-auto max-w-5xl">
                 {/* Heading */}
-                <div className="text-center mb-12">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5 }}
+                    className="text-center mb-12"
+                >
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                         Choose Your{" "}
-                        <span className="text-emerald-500">Perfect Service</span>
+                        <span className="text-red-500">Perfect Service</span>
                     </h2>
                     <p className="text-gray-500 text-base">
                         From single items to full house moves, we&apos;ve got the right solution for you
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {services.map((svc) => {
+                    {services.map((svc, index) => {
                         const Icon = svc.icon;
                         return (
-                            <Card
+                            <motion.div
                                 key={svc.title}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                            >
+                            <Card
                                 className="overflow-hidden border-gray-100 shadow-sm hover:shadow-md transition-shadow py-0 gap-0"
                             >
                                 {/* Image */}
@@ -156,7 +169,7 @@ export default function Services() {
                                     <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-6">
                                         {svc.features.map((f) => (
                                             <div key={f} className="flex items-center gap-2 text-sm text-gray-600">
-                                                <Check className="h-4 w-4 text-emerald-500 shrink-0" strokeWidth={2.5} />
+                                                <Check className="h-4 w-4 text-red-500 shrink-0" strokeWidth={2.5} />
                                                 {f}
                                             </div>
                                         ))}
@@ -179,19 +192,20 @@ export default function Services() {
                                     <div className="flex gap-3">
                                         <button
                                             onClick={() => handleGetQuote(svc.title)}
-                                            className="flex-1 rounded-full bg-emerald-500 py-2.5 text-sm font-semibold text-white hover:bg-emerald-600 transition"
+                                            className="flex-1 rounded-full bg-red-500 py-2.5 text-sm font-semibold text-white hover:bg-red-600 transition"
                                         >
                                             Get Quote
                                         </button>
                                         <button
                                             onClick={() => handleGetQuote(svc.title)}
-                                            className="flex-1 rounded-full border-2 border-emerald-500 py-2.5 text-sm font-semibold text-emerald-600 hover:bg-emerald-50 transition"
+                                            className="flex-1 rounded-full border-2 border-red-500 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-50 transition"
                                         >
                                             Learn more
                                         </button>
                                     </div>
                                 </CardContent>
                             </Card>
+                            </motion.div>
                         );
                     })}
                 </div>
