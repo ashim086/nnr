@@ -117,7 +117,7 @@ export default function FAQ() {
             <div className="mx-auto max-w-5xl">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     {/* Left */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -155,7 +155,7 @@ export default function FAQ() {
                     </motion.div>
 
                     {/* Right */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}

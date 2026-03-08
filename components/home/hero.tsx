@@ -73,7 +73,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
     return (
         <section className="min-h-screen overflow-hidden relative">
             {/* Mountains Background - High quality Himalayan image */}
-            <div 
+            <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2070&auto=format&fit=crop')" }}
             />
@@ -81,7 +81,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
             <div className="absolute inset-0 bg-[#0d1b2e]/70 pointer-events-none" />
             {/* Bottom gradient for smooth transition */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b2e] via-transparent to-[#0d1b2e]/50 pointer-events-none" />
-            
+
             {/* ─── Navbar ─── */}
             <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d1b2e]/90 backdrop-blur-md border-b border-white/10">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -123,7 +123,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                 {/* Left Column */}
                 <div className="flex flex-col justify-center pb-16 lg:pb-24 lg:pr-12">
                     {/* Nepali greeting badge */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
@@ -139,7 +139,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                     </motion.div>
 
                     {/* Headline */}
-                    <motion.h1 
+                    <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
@@ -162,7 +162,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                     </motion.h1>
 
                     {/* Subtext */}
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
@@ -172,16 +172,12 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                     </motion.p>
 
                     {/* CTA Buttons */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="flex flex-wrap items-center gap-4 mb-10"
                     >
-                        <button className="inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-red-700 transition">
-                            <Download className="h-4 w-4" />
-                            Download Our Apps
-                        </button>
                         <button className="inline-flex items-center gap-2 rounded-full border-2 border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition">
                             <Phone className="h-4 w-4 text-red-400" />
                             Call 0452 649 320
@@ -189,7 +185,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                     </motion.div>
 
                     {/* Trust Badges */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.5 }}
@@ -213,7 +209,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                 </div>
 
                 {/* Right Column – Quote form */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
@@ -228,7 +224,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                                 <h3 className="text-xl font-bold text-white mb-1">Get Your Quote</h3>
                                 <p className="text-sm text-white/70">Fast, reliable Nepali movers 🇳🇵</p>
                             </div>
-                            
+
                             <div className="space-y-4 mb-4">
                                 {/* Moving from */}
                                 <div>
@@ -274,7 +270,7 @@ const Hero = ({ onGetQuote }: HeroProps) => {
                             >
                                 Get Instant Quote →
                             </button>
-                            
+
                             <p className="text-center text-xs text-white/60 mt-4">
                                 ✓ No obligation &nbsp;•&nbsp; ✓ Response within 30 mins
                             </p>

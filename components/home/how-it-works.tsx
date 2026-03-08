@@ -26,7 +26,7 @@ export default function HowItWorks() {
 
             <div className="relative z-10 mx-auto max-w-5xl flex flex-col items-center text-center">
                 {/* Heading */}
-                <motion.h2 
+                <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -38,7 +38,7 @@ export default function HowItWorks() {
                 </motion.h2>
 
                 {/* Subtext */}
-                <motion.p 
+                <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -54,8 +54,8 @@ export default function HowItWorks() {
                     {steps.map((step, i) => {
                         const Icon = step.icon;
                         return (
-                            <motion.div 
-                                key={i} 
+                            <motion.div
+                                key={i}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-50px" }}
@@ -90,17 +90,13 @@ export default function HowItWorks() {
                 </div>
 
                 {/* CTAs */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                     className="flex flex-wrap items-center justify-center gap-4"
                 >
-                    <button className="inline-flex items-center gap-2.5 rounded-full bg-red-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-red-600 transition">
-                        <Download className="h-4 w-4" />
-                        Download Our Apps
-                    </button>
                     <button
                         className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition backdrop-blur-sm"
                     >

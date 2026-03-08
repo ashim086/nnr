@@ -106,7 +106,7 @@ export default function Services() {
             />
             <div className="mx-auto max-w-5xl">
                 {/* Heading */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -134,77 +134,77 @@ export default function Services() {
                                 viewport={{ once: true, margin: "-50px" }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
-                            <Card
-                                className="overflow-hidden border-gray-100 shadow-sm hover:shadow-md transition-shadow py-0 gap-0"
-                            >
-                                {/* Image */}
-                                <div className="relative h-56 w-full overflow-hidden">
-                                    <img
-                                        src={svc.image}
-                                        alt={svc.title}
-                                        className="h-full w-full object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
-                                    <span
-                                        className={`absolute top-4 left-4 ${svc.badgeColor} text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-wide`}
-                                    >
-                                        {svc.badge}
-                                    </span>
-                                </div>
-
-                                <CardContent className="p-6">
-                                    {/* Title */}
-                                    <div className="flex items-center gap-2 mb-3">
-                                        <Icon className="h-5 w-5 text-gray-700" strokeWidth={1.5} />
-                                        <h3 className="text-xl font-bold text-gray-900">{svc.title}</h3>
+                                <Card
+                                    className="overflow-hidden border-gray-100 shadow-sm hover:shadow-md transition-shadow py-0 gap-0"
+                                >
+                                    {/* Image */}
+                                    <div className="relative h-56 w-full overflow-hidden">
+                                        <img
+                                            src={svc.image}
+                                            alt={svc.title}
+                                            className="h-full w-full object-cover"
+                                        />
+                                        <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
+                                        <span
+                                            className={`absolute top-4 left-4 ${svc.badgeColor} text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-wide`}
+                                        >
+                                            {svc.badge}
+                                        </span>
                                     </div>
 
-                                    {/* Description */}
-                                    <p className="text-gray-500 text-sm mb-5 leading-relaxed">
-                                        {svc.description}
-                                    </p>
+                                    <CardContent className="p-6">
+                                        {/* Title */}
+                                        <div className="flex items-center gap-2 mb-3">
+                                            <Icon className="h-5 w-5 text-gray-700" strokeWidth={1.5} />
+                                            <h3 className="text-xl font-bold text-gray-900">{svc.title}</h3>
+                                        </div>
 
-                                    {/* Perfect for */}
-                                    <p className="text-sm font-bold text-gray-800 mb-3">✨ Perfect for:</p>
-                                    <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-6">
-                                        {svc.features.map((f) => (
-                                            <div key={f} className="flex items-center gap-2 text-sm text-gray-600">
-                                                <Check className="h-4 w-4 text-red-500 shrink-0" strokeWidth={2.5} />
-                                                {f}
-                                            </div>
-                                        ))}
-                                    </div>
+                                        {/* Description */}
+                                        <p className="text-gray-500 text-sm mb-5 leading-relaxed">
+                                            {svc.description}
+                                        </p>
 
-                                    {/* Meta */}
-                                    <div className="flex items-center gap-5 mb-6 text-xs text-gray-500">
-                                        {svc.meta.map((m) => {
-                                            const MIcon = m.icon;
-                                            return (
-                                                <div key={m.label} className="flex items-center gap-1.5">
-                                                    <MIcon className="h-3.5 w-3.5 text-gray-400" strokeWidth={1.5} />
-                                                    {m.label}
+                                        {/* Perfect for */}
+                                        <p className="text-sm font-bold text-gray-800 mb-3">✨ Perfect for:</p>
+                                        <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-6">
+                                            {svc.features.map((f) => (
+                                                <div key={f} className="flex items-center gap-2 text-sm text-gray-600">
+                                                    <Check className="h-4 w-4 text-red-500 shrink-0" strokeWidth={2.5} />
+                                                    {f}
                                                 </div>
-                                            );
-                                        })}
-                                    </div>
+                                            ))}
+                                        </div>
 
-                                    {/* Buttons */}
-                                    <div className="flex gap-3">
-                                        <button
-                                            onClick={() => handleGetQuote(svc.title)}
-                                            className="flex-1 rounded-full bg-red-500 py-2.5 text-sm font-semibold text-white hover:bg-red-600 transition"
-                                        >
-                                            Get Quote
-                                        </button>
-                                        <button
-                                            onClick={() => handleGetQuote(svc.title)}
-                                            className="flex-1 rounded-full border-2 border-red-500 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-50 transition"
-                                        >
-                                            Learn more
-                                        </button>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                                        {/* Meta */}
+                                        <div className="flex items-center gap-5 mb-6 text-xs text-gray-500">
+                                            {svc.meta.map((m) => {
+                                                const MIcon = m.icon;
+                                                return (
+                                                    <div key={m.label} className="flex items-center gap-1.5">
+                                                        <MIcon className="h-3.5 w-3.5 text-gray-400" strokeWidth={1.5} />
+                                                        {m.label}
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+
+                                        {/* Buttons */}
+                                        <div className="flex gap-3">
+                                            <button
+                                                onClick={() => handleGetQuote(svc.title)}
+                                                className="flex-1 rounded-full bg-red-500 py-2.5 text-sm font-semibold text-white hover:bg-red-600 transition"
+                                            >
+                                                Get Quote
+                                            </button>
+                                            <button
+                                                onClick={() => handleGetQuote(svc.title)}
+                                                className="flex-1 rounded-full border-2 border-red-500 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-50 transition"
+                                            >
+                                                Learn more
+                                            </button>
+                                        </div>
+                                    </CardContent>
+                                </Card>
                             </motion.div>
                         );
                     })}

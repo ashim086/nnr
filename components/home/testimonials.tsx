@@ -58,7 +58,7 @@ export default function Testimonials() {
         <section className="py-20 px-6">
             <div className="mx-auto max-w-5xl">
                 {/* Heading */}
-                <motion.h2 
+                <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -111,7 +111,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Navigation */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
