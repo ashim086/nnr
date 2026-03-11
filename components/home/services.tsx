@@ -135,7 +135,7 @@ export default function Services() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <Card
-                                    className="overflow-hidden border-gray-100 shadow-sm hover:shadow-md transition-shadow py-0 gap-0"
+                                    className="overflow-hidden border-gray-100 shadow-sm hover:shadow-md transition-shadow py-0 gap-0 h-full flex flex-col"
                                 >
                                     {/* Image */}
                                     <div className="relative h-56 w-full overflow-hidden">
@@ -152,7 +152,7 @@ export default function Services() {
                                         </span>
                                     </div>
 
-                                    <CardContent className="p-6">
+                                    <CardContent className="p-6 flex flex-col flex-1">
                                         {/* Title */}
                                         <div className="flex items-center gap-2 mb-3">
                                             <Icon className="h-5 w-5 text-gray-700" strokeWidth={1.5} />
@@ -176,7 +176,7 @@ export default function Services() {
                                         </div>
 
                                         {/* Meta */}
-                                        <div className="flex items-center gap-5 mb-6 text-xs text-gray-500">
+                                        <div className="flex items-center gap-5 mb-6 text-xs text-gray-500 mt-auto">
                                             {svc.meta.map((m) => {
                                                 const MIcon = m.icon;
                                                 return (
