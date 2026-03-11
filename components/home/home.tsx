@@ -9,6 +9,8 @@ import Testimonials from "@/components/home/testimonials";
 import FAQ from "@/components/home/faq";
 import Footer from "@/components/home/footer";
 import BookingModal from "@/components/booking/bookinModal";
+import ContactModal from "@/components/shared/ContactModal";
+import WhatsAppBubble from "@/components/shared/WhatsAppBubble";
 
 const ROWS = 58;
 const COLS = 58;
@@ -38,6 +40,7 @@ const gridCells = Array.from({ length: TOTAL });
 export default function DashboardHome() {
     const [highlighted, setHighlighted] = useState<Set<number>>(new Set());
     const [isBookingOpen, setIsBookingOpen] = useState(false);
+    const [isContactOpen, setIsContactOpen] = useState(false);
     const [bookingFrom, setBookingFrom] = useState("");
     const [bookingTo, setBookingTo] = useState("");
 
@@ -92,7 +95,7 @@ export default function DashboardHome() {
             {/* Page sections */}
             <div className="relative z-10">
                 <section id="home">
-                    <Hero onGetQuote={handleGetQuote} />
+                    <Hero onGetQuote={handleGetQuote} onContactClick={() => setIsContactOpen(true)} />
                 </section>
                 <section id="how-it-works" className="scroll-mt-20">
                     <HowItWorks />
@@ -107,10 +110,10 @@ export default function DashboardHome() {
                     <Testimonials />
                 </section>
                 <section id="faq" className="scroll-mt-20">
-                    <FAQ />
+                    <FAQ onContactClick={() => setIsContactOpen(true)} />
                 </section>
                 <section id="contact" className="scroll-mt-20">
-                    <Footer />
+                    <Footer onContactClick={() => setIsContactOpen(true)} />
                 </section>
             </div>
 
@@ -120,6 +123,13 @@ export default function DashboardHome() {
                 initialFromAddress={bookingFrom}
                 initialToAddress={bookingTo}
             />
+
+            <ContactModal
+                isOpen={isContactOpen}
+                onClose={() => setIsContactOpen(false)}
+            />
+
+            <WhatsAppBubble />
         </div>
     );
 }

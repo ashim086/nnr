@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone, Mail, MessageCircle } from "lucide-react";
 import {
     Accordion,
     AccordionContent,
@@ -99,17 +99,21 @@ const faqs: Record<string, { q: string; a: string }[]> = {
     ],
     Coverage: [
         {
-            q: "Which cities do you cover?",
-            a: "We cover Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, Hobart, Darwin, and hundreds of regional towns across Australia.",
+            q: "Where is NNR based?",
+            a: "Our headquarters is in Sydney, NSW. All our removals originate from the Sydney metropolitan area — we move your belongings from Sydney to anywhere in Australia.",
         },
         {
-            q: "Do you offer interstate moves?",
-            a: "Yes. We specialise in interstate removals across all Australian states and territories with fixed, upfront pricing.",
+            q: "Which areas in Sydney do you cover?",
+            a: "We cover all suburbs across Greater Sydney including Auburn, Parramatta, Blacktown, Liverpool, Penrith, Sutherland, Northern Beaches, Inner West, Eastern Suburbs, and more.",
+        },
+        {
+            q: "Do you offer interstate moves from Sydney?",
+            a: "Yes! We specialise in interstate removals from Sydney to Melbourne, Brisbane, Canberra, Adelaide, Perth, and all other Australian cities with fixed, upfront pricing.",
         },
     ],
 };
 
-export default function FAQ() {
+export default function FAQ({ onContactClick }: { onContactClick?: () => void }) {
     const [activeCategory, setActiveCategory] = useState("Getting Started");
 
     return (
@@ -142,13 +146,17 @@ export default function FAQ() {
                             <p className="font-semibold text-gray-900">Still have questions?</p>
                             <p className="text-sm text-gray-500">Our friendly team is here to help you 24/7</p>
                             <div className="flex flex-wrap gap-2 mt-1 justify-center">
-                                <button className="inline-flex items-center gap-2 rounded-full bg-red-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-600 transition">
+                                <a href="tel:0452649320" className="inline-flex items-center gap-2 rounded-full bg-red-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-600 transition">
                                     <Phone className="h-4 w-4" />
-                                    Call 0452 649 320
-                                </button>
-                                <button className="inline-flex items-center gap-2 rounded-full border-2 border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:border-gray-300 transition">
-                                    <MessageCircle className="h-4 w-4" />
-                                    Live Chat
+                                    Call Us
+                                </a>
+                                <button
+                                    type="button"
+                                    onClick={onContactClick}
+                                    className="inline-flex items-center gap-2 rounded-full border-2 border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 hover:border-red-300 hover:text-red-600 transition"
+                                >
+                                    <Mail className="h-4 w-4" />
+                                    Contact Us
                                 </button>
                             </div>
                         </div>

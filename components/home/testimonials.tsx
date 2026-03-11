@@ -8,39 +8,45 @@ import { Card, CardContent } from "@/components/ui/card";
 const testimonials = [
     {
         quote: "Searched for man with van near me and found NNR. Best decision. The driver was professional, careful with my furniture, and made the whole experience stress-free.",
-        name: "Sarah Mitchell",
+        name: "Bikash Tamang",
         role: "Sydney, NSW",
-        avatar: "https://i.pravatar.cc/150?img=12",
+        initials: "BT",
+        color: "bg-red-600",
     },
     {
-        quote: "Booked a house removal from Melbourne to Brisbane. The team was punctual, efficient and nothing was damaged. Highly recommended!",
-        name: "James Nguyen",
-        role: "Melbourne, VIC",
-        avatar: "https://i.pravatar.cc/150?img=53",
+        quote: "Booked a house removal from Sydney to Melbourne. The team was punctual, efficient and nothing was damaged. Highly recommended!",
+        name: "Sushila Gurung",
+        role: "Sydney, NSW",
+        initials: "SG",
+        color: "bg-blue-600",
     },
     {
         quote: "As a startup founder relocating our office, I needed a reliable team. NNR delivered exactly that — fast, careful and great value.",
-        name: "Priya Sharma",
-        role: "Perth, WA",
-        avatar: "https://i.pravatar.cc/150?img=47",
+        name: "Rajesh Shrestha",
+        role: "Sydney, NSW",
+        initials: "RS",
+        color: "bg-emerald-600",
     },
     {
-        quote: "Incredible service from start to finish. The app made booking so easy and the movers arrived right on time. Will use again!",
-        name: "Tom Brennan",
-        role: "Brisbane, QLD",
-        avatar: "https://i.pravatar.cc/150?img=33",
+        quote: "Incredible service from start to finish. Booking was so easy and the movers arrived right on time. Will use again for sure!",
+        name: "Anita Rai",
+        role: "Sydney, NSW",
+        initials: "AR",
+        color: "bg-purple-600",
     },
     {
-        quote: "Had to move my piano interstate and was nervous about it. The NNR team handled it with such care. Absolutely worth every cent.",
-        name: "Emma Clarke",
-        role: "Adelaide, SA",
-        avatar: "https://i.pravatar.cc/150?img=9",
+        quote: "Had to move my piano from Sydney to Brisbane and was nervous about it. The NNR team handled it with such care. Absolutely worth every cent.",
+        name: "Dipak Magar",
+        role: "Sydney, NSW",
+        initials: "DM",
+        color: "bg-amber-600",
     },
     {
-        quote: "Student move from uni accommodation — fast, affordable and the guys were super friendly. Exactly what I needed!",
-        name: "Liam Chen",
-        role: "Canberra, ACT",
-        avatar: "https://i.pravatar.cc/150?img=60",
+        quote: "Student move from uni accommodation — fast, affordable and the guys were super friendly. Exactly what I needed! 🙏",
+        name: "Sabina Thapa",
+        role: "Sydney, NSW",
+        initials: "ST",
+        color: "bg-pink-600",
     },
 ];
 
@@ -98,11 +104,9 @@ export default function Testimonials() {
                                             <p className="text-sm font-semibold text-gray-900">{t.name}</p>
                                             <p className="text-xs text-gray-400">{t.role}</p>
                                         </div>
-                                        <img
-                                            src={t.avatar}
-                                            alt={t.name}
-                                            className="h-14 w-14 rounded-lg object-cover"
-                                        />
+                                        <div className={`h-14 w-14 rounded-lg ${t.color} flex items-center justify-center`}>
+                                            <span className="text-white font-bold text-lg">{t.initials}</span>
+                                        </div>
                                     </div>
                                 </CardContent>
                             </Card>

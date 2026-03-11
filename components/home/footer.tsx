@@ -1,11 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import {
     Phone,
     Mail,
     MapPin,
     Facebook,
-    Instagram,
     MessageCircle,
 } from "lucide-react";
 
@@ -24,7 +24,11 @@ const footerLinks = [
     },
 ];
 
-export default function Footer() {
+interface FooterProps {
+    onContactClick?: () => void;
+}
+
+export default function Footer({ onContactClick }: FooterProps) {
     return (
         <footer id="contact" className="bg-[#0d1b2e]">
             {/* Contact Bar */}
@@ -66,11 +70,7 @@ export default function Footer() {
                     {/* Brand column */}
                     <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
                         <div className="flex items-center gap-2">
-                            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white">
-                                <span className="text-[#0d1b2e] font-bold text-sm">N</span>
-                                <span className="text-red-600 font-bold text-sm">N</span>
-                                <span className="text-[#0d1b2e] font-bold text-sm">R</span>
-                            </div>
+                            <img src="/logoOfficial.png" alt="NNR Logo" className="h-10 w-auto" />
                             <div>
                                 <p className="text-white font-bold text-sm">Namaste Nepal</p>
                                 <p className="text-gray-400 text-xs">Removal Services</p>
@@ -83,13 +83,13 @@ export default function Footer() {
                         {/* Social Links */}
                         <div className="flex items-center gap-3 mt-2">
                             <span className="text-xs text-gray-500 uppercase tracking-wider">Connect</span>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition">
+                            <a href="https://www.facebook.com/namastenepal.removal" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition">
                                 <Facebook className="h-4 w-4 text-white" />
                             </a>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition">
-                                <Instagram className="h-4 w-4 text-white" />
+                            <a href="https://www.tiktok.com/@namastenepalremov" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition">
+                                <svg className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.81a8.23 8.23 0 0 0 4.76 1.5V6.86a4.84 4.84 0 0 1-1-.17z" /></svg>
                             </a>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition">
+                            <a href="https://wa.me/61452649320" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition">
                                 <MessageCircle className="h-4 w-4 text-white" />
                             </a>
                         </div>
@@ -99,15 +99,32 @@ export default function Footer() {
                     {footerLinks.map((col) => (
                         <div key={col.heading} className="flex flex-col gap-3">
                             <p className="text-xs font-bold text-white uppercase tracking-widest">{col.heading}</p>
-                            {col.links.map((link) => (
-                                <a
-                                    key={link}
-                                    href="#"
-                                    className="text-sm text-gray-400 hover:text-red-400 transition"
-                                >
-                                    {link}
-                                </a>
-                            ))}
+                            {col.links.map((link) => {
+                                if (link === "Privacy Policy") {
+                                    return (
+                                        <Link key={link} href="/privacy-policy" className="text-sm text-gray-400 hover:text-red-400 transition">
+                                            {link}
+                                        </Link>
+                                    );
+                                }
+                                if (link === "Terms of Service") {
+                                    return (
+                                        <Link key={link} href="/terms-of-service" className="text-sm text-gray-400 hover:text-red-400 transition">
+                                            {link}
+                                        </Link>
+                                    );
+                                }
+                                return (
+                                    <a
+                                        key={link}
+                                        href="#"
+                                        onClick={link === "Contact" && onContactClick ? (e) => { e.preventDefault(); onContactClick(); } : undefined}
+                                        className="text-sm text-gray-400 hover:text-red-400 transition"
+                                    >
+                                        {link}
+                                    </a>
+                                );
+                            })}
                         </div>
                     ))}
                 </div>

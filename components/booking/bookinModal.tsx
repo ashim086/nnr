@@ -191,28 +191,30 @@ export default function BookingModal({
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="sm:max-w-135 max-h-[90vh] overflow-y-auto">
+            <DialogContent className="sm:max-w-135 max-h-[90vh] overflow-y-auto scrollbar-thin bg-[#0d1b2e] text-white border-0 shadow-2xl">
 
                 {submitted ? (
                     // Success
                     <div className="flex flex-col items-center justify-center py-10 gap-4 text-center">
-                        <CheckCircle2 className="size-16 text-green-500" />
-                        <DialogTitle className="text-2xl font-bold">Booking Requested!</DialogTitle>
-                        <p className="text-muted-foreground text-sm max-w-xs">
+                        <CheckCircle2 className="size-16 text-green-400" />
+                        <DialogTitle className="text-2xl font-bold text-white">Booking Requested!</DialogTitle>
+                        <p className="text-white/60 text-sm max-w-xs">
                             Your removal request has been submitted. We&apos;ll contact you shortly to confirm your booking.
                         </p>
-                        <Button className="mt-2 w-full" onClick={onClose}>Done</Button>
+                        <Button className="mt-2 w-full bg-red-600 hover:bg-red-700 text-white" onClick={onClose}>Done</Button>
                     </div>
 
                 ) : (
                     // Form
                     <>
-                        <DialogHeader>
-                            <div className="flex items-center gap-2">
-                                <TruckIcon className="size-5 text-primary" />
-                                <DialogTitle className="text-2xl font-bold">Book a Removal</DialogTitle>
+                        <DialogHeader className="bg-[#162438] -mx-6 -mt-6 px-6 pt-6 pb-4 rounded-t-lg">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-red-600/20 rounded-lg">
+                                    <TruckIcon className="size-5 text-red-400" />
+                                </div>
+                                <DialogTitle className="text-2xl font-bold text-white">Book a Removal</DialogTitle>
                             </div>
-                            <DialogDescription>
+                            <DialogDescription className="text-white/50">
                                 Fill in the details and we&apos;ll get back to you with a quote.
                             </DialogDescription>
                         </DialogHeader>
@@ -220,20 +222,21 @@ export default function BookingModal({
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 pt-1">
 
                             {error && (
-                                <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm">
+                                <div className="bg-red-600/15 border border-red-500/30 text-red-400 p-3 rounded-lg text-sm">
                                     {error}
                                 </div>
                             )}
 
                             {/* From Address */}
                             <div className="space-y-1.5">
-                                <Label className="flex items-center gap-1.5">
-                                    <MapPin className="size-3.5 text-muted-foreground" /> From Address
+                                <Label className="flex items-center gap-1.5 text-white/80">
+                                    <MapPin className="size-3.5 text-red-400" /> From Address
                                 </Label>
                                 <PlacesInput
                                     value={fromAddr}
                                     onChange={handleFromChange}
                                     placeholder="e.g. 123 Main Street, Sydney"
+                                    variant="glass"
                                     hasError={!!errors.fromAddress}
                                 />
                                 <input type="hidden" {...register("fromAddress", {
@@ -246,13 +249,14 @@ export default function BookingModal({
 
                             {/* To Address */}
                             <div className="space-y-1.5">
-                                <Label className="flex items-center gap-1.5">
-                                    <MapPin className="size-3.5 text-primary" /> To Address
+                                <Label className="flex items-center gap-1.5 text-white/80">
+                                    <MapPin className="size-3.5 text-red-400" /> To Address
                                 </Label>
                                 <PlacesInput
                                     value={toAddr}
                                     onChange={handleToChange}
                                     placeholder="e.g. 456 New Road, Melbourne"
+                                    variant="glass"
                                     hasError={!!errors.toAddress}
                                 />
                                 <input type="hidden" {...register("toAddress", {
@@ -265,23 +269,23 @@ export default function BookingModal({
 
                             {/* Move Date */}
                             <div className="space-y-1.5">
-                                <Label htmlFor="moveDate" className="flex items-center gap-1.5">
-                                    <Calendar className="size-3.5 text-muted-foreground" /> Move Date
+                                <Label htmlFor="moveDate" className="flex items-center gap-1.5 text-white/80">
+                                    <Calendar className="size-3.5 text-red-400" /> Move Date
                                 </Label>
                                 <Input
                                     id="moveDate"
                                     type="date"
                                     min={minDate}
                                     {...register("moveDate", { required: "Move date is required" })}
-                                    className={cn(errors.moveDate && "border-red-400")}
+                                    className={cn("bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:ring-red-400/60 scheme-dark", errors.moveDate && "border-red-400")}
                                 />
                                 {errors.moveDate && <p className="text-xs text-red-500">{errors.moveDate.message}</p>}
                             </div>
 
                             {/* Phone */}
                             <div className="space-y-1.5">
-                                <Label htmlFor="phone" className="flex items-center gap-1.5">
-                                    <Phone className="size-3.5 text-muted-foreground" /> Contact Phone
+                                <Label htmlFor="phone" className="flex items-center gap-1.5 text-white/80">
+                                    <Phone className="size-3.5 text-red-400" /> Contact Phone
                                 </Label>
                                 <Input
                                     id="phone"
@@ -291,15 +295,15 @@ export default function BookingModal({
                                         required: "Phone number is required",
                                         minLength: { value: 7, message: "Enter a valid phone number" },
                                     })}
-                                    className={cn(errors.phone && "border-red-400")}
+                                    className={cn("bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:ring-red-400/60", errors.phone && "border-red-400")}
                                 />
                                 {errors.phone && <p className="text-xs text-red-500">{errors.phone.message}</p>}
                             </div>
 
                             {/* Email */}
                             <div className="space-y-1.5">
-                                <Label htmlFor="email" className="flex items-center gap-1.5">
-                                    <Mail className="size-3.5 text-muted-foreground" /> Email Address
+                                <Label htmlFor="email" className="flex items-center gap-1.5 text-white/80">
+                                    <Mail className="size-3.5 text-red-400" /> Email Address
                                 </Label>
                                 <Input
                                     id="email"
@@ -312,15 +316,15 @@ export default function BookingModal({
                                             message: "Enter a valid email address",
                                         },
                                     })}
-                                    className={cn(errors.email && "border-red-400")}
+                                    className={cn("bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:ring-red-400/60", errors.email && "border-red-400")}
                                 />
                                 {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
                             </div>
 
                             {/* Service Type */}
                             <div className="space-y-2">
-                                <Label className="flex items-center gap-1.5">
-                                    <Home className="size-3.5 text-muted-foreground" /> Service Type
+                                <Label className="flex items-center gap-1.5 text-white/80">
+                                    <Home className="size-3.5 text-red-400" /> Service Type
                                 </Label>
                                 <div className="grid grid-cols-2 gap-2">
                                     {SERVICE_OPTIONS.map((opt) => {
@@ -328,12 +332,12 @@ export default function BookingModal({
                                         return (
                                             <label key={opt.value} className={cn(
                                                 "flex flex-col gap-0.5 rounded-lg border p-3 cursor-pointer transition-colors",
-                                                isSelected ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
+                                                isSelected ? "border-red-500 bg-red-600/10" : "border-white/20 hover:border-red-400/50"
                                             )}>
                                                 <input type="radio" value={opt.value} className="sr-only"
                                                     {...register("houseSize", { required: true })} />
-                                                <span className="font-semibold text-sm">{opt.label}</span>
-                                                <span className="text-xs text-muted-foreground">{opt.description}</span>
+                                                <span className="font-semibold text-sm text-white">{opt.label}</span>
+                                                <span className="text-xs text-white/50">{opt.description}</span>
                                             </label>
                                         );
                                     })}
@@ -342,18 +346,18 @@ export default function BookingModal({
 
                             {/* Additional Queries */}
                             <div className="space-y-1.5">
-                                <Label htmlFor="queries" className="flex items-center gap-1.5">
-                                    <MessageSquare className="size-3.5 text-muted-foreground" /> Additional Information (Optional)
+                                <Label htmlFor="queries" className="flex items-center gap-1.5 text-white/80">
+                                    <MessageSquare className="size-3.5 text-red-400" /> Additional Information (Optional)
                                 </Label>
                                 <textarea
                                     id="queries"
                                     placeholder="Any special requirements or questions?"
                                     {...register("queries")}
-                                    className="flex min-h-20 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                                    className="flex min-h-20 w-full rounded-md border border-white/20 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-red-400/60 transition"
                                 />
                             </div>
 
-                            <Button type="submit" className="w-full" disabled={isSubmitting}>
+                            <Button type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white" disabled={isSubmitting}>
                                 {isSubmitting ? "Submitting…" : "Request Removal"}
                             </Button>
 
