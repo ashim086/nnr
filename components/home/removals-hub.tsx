@@ -118,7 +118,7 @@ export default function RemovalsHub() {
                                 <TabsTrigger
                                     key={tab.value}
                                     value={tab.value}
-                                    className="w-full flex justify-center items-center text-center border-b-2 border-transparent data-[state=active]:border-red-400 data-[state=active]:text-white text-white/50 bg-transparent px-2 pb-3 pt-0 text-xs font-bold tracking-widest uppercase transition-colors hover:text-white/80 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+                                    className="w-full flex justify-center items-center text-center border-b-2 border-transparent data-[state=active]:border-red-400 data-[state=active]:text-white text-white/50 bg-transparent px-2 pb-3 pt-0 text-[0.6rem] sm:text-xs font-bold tracking-widest uppercase transition-colors hover:text-white/80 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
                                 >
                                     {tab.label}
                                 </TabsTrigger>

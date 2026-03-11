@@ -16,7 +16,7 @@ const footerLinks = [
     },
     {
         heading: "Company",
-        links: ["About Us", "Our Team", "Gallery", "Testimonials", "Contact"],
+        links: ["About Us", "Testimonials", "Contact"],
     },
     {
         heading: "Support",

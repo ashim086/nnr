@@ -196,12 +196,6 @@ export default function Services() {
                                             >
                                                 Get Quote
                                             </button>
-                                            <button
-                                                onClick={() => handleGetQuote(svc.title)}
-                                                className="flex-1 rounded-full border-2 border-red-500 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-50 transition"
-                                            >
-                                                Learn more
-                                            </button>
                                         </div>
                                     </CardContent>
                                 </Card>

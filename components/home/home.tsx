@@ -11,6 +11,7 @@ import Footer from "@/components/home/footer";
 import BookingModal from "@/components/booking/bookinModal";
 import ContactModal from "@/components/shared/ContactModal";
 import WhatsAppBubble from "@/components/shared/WhatsAppBubble";
+import BookingBubble from "@/components/shared/BookingBubble";
 
 const ROWS = 58;
 const COLS = 58;
@@ -130,6 +131,7 @@ export default function DashboardHome() {
             />
 
             <WhatsAppBubble />
+            <BookingBubble onClick={() => setIsBookingOpen(true)} />
         </div>
     );
 }
